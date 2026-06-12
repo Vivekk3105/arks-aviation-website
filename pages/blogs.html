@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aviation Blog</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="../public/Styles/blogs.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+  </head>
+  <body>
+    <!-- SCROLL-TOP BUTTON -------------------------------------------------------------------------------------------------->
+    <button class="scroll-btn" id="topBtn">
+      <i class="bi bi-rocket"></i>
+    </button>
+
+    <!-- Top Info Bar ---------------------------------------------------------------------------------->
+
+    <div class="top-info-bar">
+      <div class="container">
+        <div class="header row align-items-center">
+          <div class="col-lg-8 col-md-7">
+            <div class="info-left d-flex flex-wrap">
+              <div class="top-info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span
+                  >First Floor, Star Tower Building Khanpur Road, Tilakwadi,
+                  Belagavi-590006 Karnataka, India.</span
+                >
+              </div>
+              <div class="top-info-item">
+                <i class="fas fa-envelope"></i>
+                <span>www.arksaviation.com</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-5">
+            <div class="info-right text-md-end text-center mt-md-0 mt-2">
+              <div class="top-info-item">
+                <i class="fas fa-clock"></i>
+                <span>Opening : Mon-Fri 09:00 - 6:00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <div class="logo"></div>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./about-us.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./courses.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./career.html">Career</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" href="blogs.html"> Blogs </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./contact-us.html">Contact Us</a>
+            </li>
+          </ul>
+          <div class="phone-number">
+            <i class="fas fa-phone-alt"></i>
+            <span>+91 9611 469385</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title">Daily<span>Blog's</span></h1>
+        <p class="hero-text">
+          Stay updated with the latest insights, trends, and stories from the
+          world of aviation. Our daily blogs cover everything from pilot
+          training tips and industry news to expert advice and success stories.
+        </p>
+      </div>
+    </section>
+    <div class="container py-5">
+      <h1 class="text-center mb-5">LATEST BLOGS & ARTICLES</h1>
+      <div id="blogContainer" class="row g-4"></div>
+      <div class="text-center mt-4">
+        <button id="loadMore" class="btn btn-primary me-2">Load More</button>
+        <button id="loadLess" class="btn btn-secondary" style="display: none">
+          Load Less
+        </button>
+      </div>
+    </div>
+
+    <!-- Blog Post Modal -->
+    <div
+      class="modal fade"
+      id="blogModal"
+      tabindex="-1"
+      aria-labelledby="blogModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header border-0 pb-0">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="blog-modal-content">
+              <img src="" alt="" class="modal-image img-fluid rounded mb-4" />
+              <span class="blog-category mb-2 d-inline-block"></span>
+              <h2 class="modal-title mb-2"></h2>
+              <p class="blog-date mb-4"></p>
+              <div class="blog-content"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chatbot Container -->
+    <div class="chatbot-container">
+      <div class="chatbot-header">
+        <h4>Chat with Us!</h4>
+
+        <button class="chat-close-btn" type="button">X</button>
+      </div>
+      <div class="chatbot-messages">
+        <!-- Messages will be dynamically added here -->
+      </div>
+      <div class="chatbot-input-container">
+        <input
+          type="text"
+          class="chatbot-input"
+          placeholder="Type your message..." />
+        <button class="btn btn-primary send-message" type="button">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Chatbot Logo -->
+    <div class="chatbot-logo">
+      <img src="../public/images/chatbot.jpg" alt="Chatbot Logo" />
+    </div>
+
+    <!-- Main Footer --------------------------------------------------------------------------------------------------------->
+    <footer class="main-footer">
+      <div class="container">
+        <div class="row g-4">
+          <!-- Company Info -->
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-logo">
+              <img
+                src="/public/images/logo.png"
+                alt="ARKS Academy"
+                class="img-fluid" />
+            </div>
+            <p class="mt-4">
+              Are you passionate about aviation? Do you dream of working with
+              top airlines, airports, and global aviation companies? ARKS
+              Aviation is your perfect launchpad! We don't just train – we
+              transform you into aviation professionals with 100% job guarantee.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-icon"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="col-lg-4 col-md-6">
+            <h3 class="quick-links">Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Career</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="col-lg-4 col-md-12">
+            <h3 class="contact-links">Contact Us</h3>
+            <ul class="contact-info">
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <span
+                  >First Floor, Star Tower Building Khampur Road, Tilakwadi,
+                  Belagavi-590006</span
+                >
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:arksaviation.info@gmail.com"
+                  >arksaviation.info@gmail.com</a
+                >
+              </li>
+              <li>
+                <i class="fas fa-phone"></i>
+                <a href="tel:+919611469385">+91 9611 469385</a>
+              </li>
+              <li>
+                <i class="far fa-clock"></i>
+                <!-- <h6 class="mb-0 style">Opening Hours</h6> -->
+                <p class="mb-0 style">10:00 AM - 6:00 PM</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="bottom-bar">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 text-center text-md-start">
+              <p class="mb-0">Copyright © 2025. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+              <p class="mb-0">ARKS International Aviation Academy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../public/javaScripts/blogs.js"></script>
+  </body>
+</html>
